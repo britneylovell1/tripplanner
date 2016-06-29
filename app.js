@@ -16,14 +16,14 @@ swig.setDefaults({ cache: false });
 
 // Static Logging
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(Express.static(path.join(__dirname, '/public')))
 
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Routes
-
+app.use('/', routeHandler);
 
 // Error Handling Route
 // catch 404 (i.e., no route was hit) and forward to error handler
@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// handle all errors (anything passed into `next()`)
+handle all errors (anything passed into `next()`)
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err);

@@ -15,8 +15,8 @@ Promise.all([
         Place.sync({})
     ])
     .then(function () {
-        server.listen(3001, function () {
-            console.log('Server is listening on port 3001!');
+        server.listen(3000, function () {
+            console.log('Server is listening on port 3000!');
         });
     })
     .catch(console.error);
