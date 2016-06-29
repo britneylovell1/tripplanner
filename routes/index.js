@@ -16,9 +16,9 @@ router.get(function(req, res, next) {
 		Place.findAll(),
 		Restaurant.findAll()
 	])
-	.then(function(activities, hotels, places, restaurants) {
+	.spread(function(activities, hotels, places, restaurants) {
 		res.render('index', {
-			activties: activities,
+			activities: activities,
 			hotels: hotels,
 			places: places,
 			restaurants: restaurants

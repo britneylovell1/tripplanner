@@ -6,6 +6,7 @@ var swig = require('swig');
 var path = require('path');
 var routeHandler = require('./routes');
 var bluebird = require('bluebird');
+var db = require('./models');
 
 
 // Swig Templeting
@@ -33,7 +34,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-handle all errors (anything passed into `next()`)
+/*handle all errors (anything passed into `next()`)*/
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   console.error(err);
@@ -45,3 +46,11 @@ app.use(function(err, req, res, next) {
 // app.listen(function() {
 // 	console.log('Listening on Port 3000');
 // }, 3000);
+
+
+	
+     app.listen(3000, function () {
+        db.sync()
+     .then(function(){console.log("we synched the database");})
+    .catch(function(err){console.log(err)});
+	});
