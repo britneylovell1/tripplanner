@@ -17,7 +17,8 @@ swig.setDefaults({ cache: false });
 
 // Static Logging
 app.use(morgan('dev'));
-app.use(Express.static(path.join(__dirname, '/public')))
+app.use('/bootstrap', Express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use('/jquery', Express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
 // Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,15 +43,13 @@ app.use(function(err, req, res, next) {
     'error', { /* FILL THIS IN */ }
   );
 });
-
-// app.listen(function() {
-// 	console.log('Listening on Port 3000');
-// }, 3000);
-
-
 	
-     app.listen(3000, function () {
-        db.sync()
-     .then(function(){console.log("we synched the database");})
-    .catch(function(err){console.log(err)});
+app.listen(3000, function () {
+	db.sync()
+	.then(function(){
+		console.log("we synched the database");
+	})
+	.catch(function(err){
+		console.log(err);
 	});
+});

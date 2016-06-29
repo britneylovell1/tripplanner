@@ -1,0 +1,38 @@
+{% block content %}
+  <h3>Hotels</h3>
+  <ul class="list-unstyled">
+    <ul>
+      {% for hotel in hotels %}
+      <li>
+        <a href="{{hotel.id}}">{{hotel.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h3>Activity</h3>
+  <ul class="list-unstyled">
+    <ul>
+      {% for activity in activities %}
+      <li>
+        <a href="{{activity.id}}">{{activity.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h3>Restaurants</h3>
+  <ul class="list-unstyled">
+    <ul>
+      {% for restaurant in restaurants %}
+      <li>
+        <a href="{{restaurant.id}}">{{restaurant.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </ul>
+{% endblock %}

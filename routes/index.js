@@ -8,19 +8,19 @@ var Restaurant = require('../models/restaurant');
 
 module.exports = router;
 
-router.get(function(req, res, next) {
+router.get('/', function(req, res, next) {
 	// render the index.html page
 	Promise.all([
 		Activity.findAll(),
 		Hotel.findAll(),
-		Place.findAll(),
+		// Place.findAll(),
 		Restaurant.findAll()
 	])
-	.spread(function(activities, hotels, places, restaurants) {
+	.spread(function(activities, hotels, /*places,*/ restaurants) {
 		res.render('index', {
 			activities: activities,
 			hotels: hotels,
-			places: places,
+			// places: places,
 			restaurants: restaurants
 		})
 	})
