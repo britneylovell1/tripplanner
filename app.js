@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var swig = require('swig');
 var path = require('path');
 var routeHandler = require('./routes');
+var bluebird = require('bluebird');
 
 
 // Swig Templeting
