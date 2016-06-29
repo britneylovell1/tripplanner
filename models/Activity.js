@@ -1,6 +1,6 @@
 var db = require('./index');
 var Sequelize = require('sequelize');
-var Place = require('./Place');
+var Place = require('./place');
 
 
 var Activity = db.define('activity', {
@@ -14,4 +14,4 @@ var Activity = db.define('activity', {
 
 Activity.belongsTo(Place);
 
-module.exports = {Activity: Activity};
+module.exports = Activity;

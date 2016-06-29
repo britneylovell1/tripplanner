@@ -1,7 +1,10 @@
 var http = require('http');
 var server = http.createServer();
-var models = require('./models');
 var Promise = require('bluebird');
+var Activity = require('./models/activity');
+var Hotel = require('./models/hotel');
+var Place = require('./models/place');
+var Restaurant = require('./models/restaurant');
 
 server.on('request', require('./app'));
 

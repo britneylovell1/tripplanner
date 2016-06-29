@@ -19,4 +19,4 @@ var Place = db.define('place', {
 	}
 });
 
-module.exports = {Place: Place};
+module.exports = Place;
