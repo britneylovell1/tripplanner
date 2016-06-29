@@ -55,22 +55,24 @@ var Restaurant = db.define('restaurant', {
 		type: Sequelize.STRING
 	},
 	price: {
-		type: Sequelize.INTEGER
+		type: Sequelize.INTEGER,
+		validate: {
+			min: 1,
+			max: 6
+		}
+
 
 	}
 
 });
 
-var Associations = db.define('associations', {
-	// 
-});
-
-
+Hotel.belongsTo('Place');
+Restaurant.belongsTo('Place');
+Activity.belongsTo('Place');
 
 module.exports = {
 	Place: Place,
 	Hotel: Hotel,
 	Activity: Activity,
 	Restaurant: Restaurant,
-	Associations: Associations
-}
+	
